@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<h2>What is your final grade for COMP557 in McGill?</h2>
+
+
+<label for="mid">Midterm(x / 20) </label><input type="number" id="mid" value=""><hr>
+<label for="A1">A (x / 10) </label><input type="number" id="A1" value=""><hr>
+<label for="A2">A (x / 12) </label><input type="number" id="A2" value=""><hr>
+<label for="A3">A (x / 12) </label><input type="number" id="A3" value=""><hr>
+<label for="A4">A (x / 6) </label><input type="number" id="A4" value=""><hr>
+<label for="final">Final exam (x / 60) </label><input type="number" id="final" value=""><hr>
+<button onclick="myFunction()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+	var mid = Number($('#mid').val());
+	
+    var A1 =  Number($('#A1').val());
+    
+    var A2 =  Number($('#A2').val());
+    var A3 =  Number($('#A3').val());
+    var A4 =  Number($('#A4').val());
+    var fin =  Number($('#final').val());
+
+    var fin1 = mid + A1 + A2 + A3 + A4 + 4 + fin * 4 / 5;
+    var fin2 = A1 + A2 + A3 + A4 + 6 + fin * 6 / 5;
+
+    if (fin1 < fin2) {
+    	fin = fin2;
+    } else {
+    	fin = fin1;
+    }
+
+    if (fin > 100) {
+    	fin = 100;
+    }
+	
+    document.getElementById("demo").innerHTML = "Your curved overall grade will be " + fin;
+   
+
+
+}
+</script>
+
+</body>
+</html>
